@@ -1,6 +1,6 @@
 # Bourne-Again-ExpressVPN
 A Bash shell script for simple ultilization of the ExpressVPN App for Linux.<br>
-Designed for users who prefer a simple and straight to the point CLI experience for ExpressVPN without the need of typing the necessary commands. (Who needs a fancy GUI anyway?) <br><br>
+Designed for users who prefer a simple and straight to the point CLI experience for ExpressVPN without the need of typing the necessary commands. <br><br>
 <h2>Required Applications</h2>
 <p><ul>ExpressVPN app with the expressvpn daemon running.</ul></p>
 <img src="screenshots/main_menu_screenshot.png">
