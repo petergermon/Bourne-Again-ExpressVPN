@@ -13,10 +13,12 @@ do
 	echo -e " $RED |---------------------------------|$NC"
 	echo -e " $RED |$NC $WHITE 1. Connect $NC                    $RED|$NC"
 	echo -e " $RED |$NC $WHITE 2. Change Location/Protocol $NC   $RED|$NC"
-	echo -e " $RED |$NC $WHITE 3. Refresh VPN Clusters       $NC $RED|$NC"
-	echo -e " $RED |$NC $WHITE 4. Disconnect $NC                 $RED|$NC"
-	echo -e " $RED |$NC $WHITE 5. Exit (Stay connected) $NC      $RED|$NC"
-	echo -e " $RED |$NC $WHITE 6. Exit (Disconnect) $NC          $RED|$NC"
+	echo -e " $RED |$NC $WHITE 3. List all VPN locations $NC     $RED|$NC"
+	echo -e " $RED |$NC $WHITE 4. Refresh VPN Clusters       $NC $RED|$NC"
+	echo -e " $RED |$NC $WHITE 5. Diagnostics $NC                $RED|$NC"
+	echo -e " $RED |$NC $WHITE 6. Disconnect $NC                 $RED|$NC"
+	echo -e " $RED |$NC $WHITE 7. Exit (Stay connected) $NC      $RED|$NC"
+	echo -e " $RED |$NC $WHITE 8. Exit (Disconnect) $NC          $RED|$NC"
 	echo -e " $RED *---------------------------------*$NC"
 	echo ""
 	expressvpn status | grep -E "Connected to|Not connected"
@@ -102,12 +104,16 @@ do
 
 		done
 	elif [ $menuSelect -eq 3 ]; then
-		expressvpn refresh
+		expressvpn ls all | less
 	elif [ $menuSelect -eq 4 ]; then
-		expressvpn disconnect
-	elif [ $menuSelect -eq 5 ]; then
-		userExit=1
+		expressvpn refresh
+	elif [ $menuSelect -eq 5 ]; then 
+		expressvpn diagnostics | less
 	elif [ $menuSelect -eq 6 ]; then
+		expressvpn disconnect
+	elif [ $menuSelect -eq 7 ]; then
+		userExit=1
+	elif [ $menuSelect -eq 8 ]; then
 		userExit=1
 		expressvpn disconnect
 	else
